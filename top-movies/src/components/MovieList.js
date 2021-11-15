@@ -1,10 +1,7 @@
 import React from "react";
 
 const MovieList = (props) => { 
-  props.movies.map( ( movie ) => {
-    return console.log(movie['im:image'][0].label);
-  })
-  
+
   return (
     <>
       {props.movies.map((movie, index) => (

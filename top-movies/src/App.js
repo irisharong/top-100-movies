@@ -11,7 +11,7 @@ const App = () => {
 
     const response = await fetch(url);
     const responseJson = await response.json();
-    console.log(responseJson.feed.entry)
+   
     if(responseJson.feed.entry) {
       setMovies(responseJson.feed.entry);
     }
