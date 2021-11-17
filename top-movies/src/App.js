@@ -24,6 +24,9 @@ const App = () => {
 	return (
 		<div className='container-fluid movie-app'>
 			<div className='row'>
+        <header>
+          <h1>Top 100 Movies</h1>
+        </header>
         <MovieList movies={movies} />
 			</div>
 		</div>
