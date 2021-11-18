@@ -37,6 +37,40 @@
   }
 }
 
+.image-container {
+  padding: 0;  
+  transform: scale(1);
+  transition: .5s;
+	position: relative;
+}
+
+.image-container:hover {
+	cursor: pointer;
+  transform: scale(1.1);
+}
+
+.image-container:hover .overlay {
+	opacity: 1;
+}
+
+.overlay {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	transition: 0.5s ease;
+	opacity: 0;
+	bottom: 0;
+	font-size: 10px;
+	padding: 10px;
+	text-align: center;
+}
+.image-container .image-desc {
+  background: #8e95a51f;
+  color: #fff;
+  padding: 10px;
+  width: -webkit-fill-available;
+}
+
 .image-container span {
   font-size: 12px;
   text-align: center;

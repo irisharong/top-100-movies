@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
+import AddFavorites from './components/AddFavorites';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -27,7 +28,7 @@ const App = () => {
         <header>
           <h1>Top 100 Movies</h1>
         </header>
-        <MovieList movies={movies} />
+        <MovieList movies={movies} favorite={AddFavorites} />
 			</div>
 		</div>
 	);
