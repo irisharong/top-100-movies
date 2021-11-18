@@ -37,6 +37,12 @@
   }
 }
 
+.movie-app {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+
 .image-container {
   padding: 0;  
   transform: scale(1);
@@ -60,7 +66,7 @@
 	transition: 0.5s ease;
 	opacity: 0;
 	bottom: 0;
-	font-size: 10px;
+	font-size: 12px;
 	padding: 10px;
 	text-align: center;
 }

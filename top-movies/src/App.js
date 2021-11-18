@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
-import AddFavorites from './components/AddFavorites';
+import MovieListHeading from './components/MovieListHeading';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+
 
   const getMovieList = async () => {
     const url = "https://itunes.apple.com/us/rss/topmovies/limit=100/json";
@@ -18,17 +20,47 @@ const App = () => {
     }
   }
 
+	const addFavoriteMovie = (movie) => {
+		const newFavoriteList = [...favorites, movie];
+		setFavorites(newFavoriteList);
+	};
+
+  const removeFavoriteMovie = (movie) => {
+    const movieId = movie.id.attributes['im:id'];
+    
+		const newFavouriteList = favorites.filter(
+			(favorite) => favorite.id.attributes['im:id'] !== movieId
+		);
+
+		setFavorites(newFavouriteList);
+	};
+
   useEffect(() => {
     getMovieList();
   }, []);
 	console.log(movies)
 	return (
 		<div className='container-fluid movie-app'>
+      <div className='row d-flex align-items-center mt-4 mb-4'>
+				<MovieListHeading heading='Top 100 Movies' />
+			</div>
 			<div className='row'>
-        <header>
-          <h1>Top 100 Movies</h1>
-        </header>
-        <MovieList movies={movies} favorite={AddFavorites} />
+        <MovieList
+          movies={movies}
+          handleFavoriteClick={addFavoriteMovie}
+          favorite="Add to Favorites"
+        />
+			</div>
+
+      <div className='row d-flex align-items-center mt-4 mb-4'>
+				<MovieListHeading heading='Favorites' />
+			</div>
+			<div className='row'>
+        <MovieList
+          movies={favorites}
+          handleFavoriteClick={removeFavoriteMovie}
+          favorite="Remove to Favorites"
+        />
 			</div>
 		</div>
 	);
