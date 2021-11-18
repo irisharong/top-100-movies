@@ -38,13 +38,29 @@ const App = () => {
   useEffect(() => {
     getMovieList();
   }, []);
-	console.log(movies)
+
 	return (
-		<div className='container-fluid movie-app'>
+		<div className='movie-app'>
+
+      {favorites.length > 0 && (
+        <>
+          <div className='row d-flex align-items-center mt-4 mb-4'>
+            <MovieListHeading heading='Favorites' />
+          </div>
+          <div className='row'>
+            <MovieList
+              movies={favorites}
+              handleFavoriteClick={removeFavoriteMovie}
+              favorite="Remove to Favorites"
+            />
+          </div>
+        </>
+      )}
+      
       <div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Top 100 Movies' />
 			</div>
-			<div className='row'>
+			<div className='row d-flex justify-content-between'>
         <MovieList
           movies={movies}
           handleFavoriteClick={addFavoriteMovie}
@@ -52,16 +68,6 @@ const App = () => {
         />
 			</div>
 
-      <div className='row d-flex align-items-center mt-4 mb-4'>
-				<MovieListHeading heading='Favorites' />
-			</div>
-			<div className='row'>
-        <MovieList
-          movies={favorites}
-          handleFavoriteClick={removeFavoriteMovie}
-          favorite="Remove to Favorites"
-        />
-			</div>
 		</div>
 	);
 };

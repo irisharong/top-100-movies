@@ -52,7 +52,7 @@
 
 .image-container:hover {
 	cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.4);
 }
 
 .image-container:hover .overlay {
@@ -66,7 +66,7 @@
 	transition: 0.5s ease;
 	opacity: 0;
 	bottom: 0;
-	font-size: 12px;
+	font-size: 10px;
 	padding: 10px;
 	text-align: center;
 }
@@ -75,9 +75,14 @@
   color: #fff;
   padding: 10px;
   width: -webkit-fill-available;
+  position: relative;
+}
+
+.image-container .price {
+  position: absolute;
+  bottom: 10px;
 }
 
 .image-container span {
   font-size: 12px;
-  text-align: center;
 }
